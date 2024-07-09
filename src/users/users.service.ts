@@ -27,6 +27,10 @@ export class UsersService {
     return this.prisma.users.findUnique({ where: { id: id } });
   }
 
+  findByEmail(email: string) {
+    return this.prisma.users.findUnique({ where: { email } });
+  }
+
   update(id: number, updateUserDto: Prisma.usersUpdateInput) {
     return this.prisma.users.update({
       data: updateUserDto,
